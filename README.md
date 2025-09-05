@@ -1,4 +1,40 @@
-# javaprogramming_practice
+# ☕️ Java Programming Practice
 
-![BowingThankYouGIF](https://github.com/user-attachments/assets/8dc86420-fbdc-434b-98b8-12b0a7a77cd7) <br>
-유한세의 자바 프로그래밍 실습입니다~~
+![BowingThankYouGIF](https://github.com/user-attachments/assets/8dc86420-fbdc-434b-98b8-12b0a7a77cd7)
+
+안녕하세요!\
+**유한세의 자바 프로그래밍 실습 저장소**입니다 ✨\
+기초부터 차근차근 실습하며 성장해 나가는 과정을 기록했습니다.
+
+------------------------------------------------------------------------
+
+## 📂 프로젝트 구조
+
+``` bash
+javaprogramming_practice
+│
+├── practice#
+│   ├── #번호는 실습한 순서입니다
+│   └── ...
+│
+└── 실습
+    ├── (필요한 실습 파일만 모음)
+    └── practice# #번호는 실습한 순서 입니다
+    └── ...
+```
+
+-   **practice#**
+    → 번호 순서대로 실습 과정을 기록한 디렉토리
+-   **실습**
+    → 불필요한 파일을 제외하고 핵심 실습만 모아둔 디렉토리
+
+------------------------------------------------------------------------
+
+
+## 🛠 사용 환경
+
+-   IDE : **IntelliJ IDEA** 
+-   Language : **Java 21**
+-   GitHub : 코드 기록
+
+------------------------------------------------------------------------
