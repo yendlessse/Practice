@@ -41,7 +41,7 @@ public class Application1 {
         arrPrint(arr);
 
     }
-    public static void arrPrint (char[][] arr) {
+    private static void arrPrint (char[][] arr) {
         for (int i = 0; i < arr.length; i++) {
             for (int j = 0; j < arr[i].length; j++) {
                 System.out.printf(arr[i][j] + " ");
