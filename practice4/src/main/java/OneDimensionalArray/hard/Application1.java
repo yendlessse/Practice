@@ -18,7 +18,7 @@ public class Application1 {
 
         //배열 수정
         // 중간 값
-        int mid = n / 2 ; //3
+        int mid = n / 2 ;
 
         //중간 앞
         for (int i = 0; i <= mid; i++) {
@@ -36,7 +36,7 @@ public class Application1 {
         // 배열 출력
         showArr(num_list);
     }
-    public static void showArr(int[] arr) {
+    private static void showArr(int[] arr) {
         for (int i = 0 ; i < arr.length; i++) {
             System.out.print(arr[i]+ " ");
         }

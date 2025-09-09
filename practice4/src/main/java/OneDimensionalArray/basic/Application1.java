@@ -11,7 +11,7 @@ public class Application1 {
         showArr(arr);
     }
 
-    public static void showArr(int[] arr) {
+    private static void showArr(int[] arr) {
         for (int i = 0 ; i < arr.length; i++) {
             System.out.print(arr[i]+ " ");
         }
