@@ -1,4 +1,4 @@
-package com.greedy.level02.normal.book.model.run;
+package com.greedy.level02.normal.book.run;
 
 import com.greedy.level02.normal.book.model.dto.BookDTO;
 
