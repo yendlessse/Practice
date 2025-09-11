@@ -7,14 +7,14 @@ public class BookDTO {
     private int price;
     private double discountRate;
 
-    BookDTO(){};
-    BookDTO(String title, String publisher, String author) {
+    public BookDTO(){};
+    public BookDTO(String title, String publisher, String author) {
         this.title = title;
         this.publisher = publisher;
         this.author = author;
     }
 
-    BookDTO(String title, String publisher, String author, int price, double discountRate) {
+    public BookDTO(String title, String publisher, String author, int price, double discountRate) {
         this.title = title;
         this.publisher = publisher;
         this.author = author;

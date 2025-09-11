@@ -1,4 +1,6 @@
-package com.greedy.level02.normal.book.model.dto;
+package com.greedy.level02.normal.book.model.run;
+
+import com.greedy.level02.normal.book.model.dto.BookDTO;
 
 public class Application {
     public static void main(String[] args) {
