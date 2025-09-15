@@ -41,7 +41,7 @@ public class Application2 {
                             boolean isEqual = target(source, str_list[j]);
                             if (isEqual) {
                                 Visited[j] = 1;           // 방문 처리
-                                count[i] += count[i]++;   // 빈도수 증가 (※ 여기 후위증가 연산은 문제 있음)
+                                count[i] += count[i]++;   // 빈도수 증가
                             }
                         }
                     }
