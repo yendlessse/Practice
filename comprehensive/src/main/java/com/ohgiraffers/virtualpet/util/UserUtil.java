@@ -6,7 +6,8 @@ import java.util.Scanner;
 
 public class UserUtil {
     // 포인트 체크 및 필요 시 충전
-    public static boolean checkAndRecharge(User user, Scanner sc) {
+    public static boolean checkAndRecharge(User user) {
+        Scanner sc = new Scanner(System.in);
         if (user.getPoints() >= 20) {
             return true; // 충분하면 바로 사용 가능
         }

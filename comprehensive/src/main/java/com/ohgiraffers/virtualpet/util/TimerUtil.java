@@ -1,15 +1,16 @@
 package com.ohgiraffers.virtualpet.util;
 
+import com.ohgiraffers.virtualpet.domain.Dog;
 import com.ohgiraffers.virtualpet.service.DogService;
 
 public class TimerUtil extends Thread {
     private final DogService dogService;
-    private final String dogName;
+    private final Dog dog;
     private boolean running = true;
 
-    public TimerUtil(DogService dogService, String dogName) {
+    public TimerUtil(DogService dogService, Dog dog) {
         this.dogService = dogService;
-        this.dogName = dogName;
+        this.dog = dog;
     }
 
     @Override
@@ -17,13 +18,17 @@ public class TimerUtil extends Thread {
         while (running) {
             try {
                 Thread.sleep(30_000); // 30초마다
-                dogService.decreaseStatus(dogName); // 배부름, 기분, 체력 감소
+                dogService.decreaseStatus(dog); // 배부름, 기분, 체력 감소
             } catch (InterruptedException e) {
-                running = false; // interrupt 발생 시 종료
+                running = false;
             }
         }
     }
+
+    // TimerUtil.java
+    public void stopTimer() {
+        running = false;
+        this.interrupt(); // sleep 깨우기
+    }
+
 }
-
-
-
