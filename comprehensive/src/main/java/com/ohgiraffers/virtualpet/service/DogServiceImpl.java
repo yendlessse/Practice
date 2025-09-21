@@ -5,7 +5,6 @@ import com.ohgiraffers.virtualpet.domain.Dog;
 import com.ohgiraffers.virtualpet.domain.User;
 import com.ohgiraffers.virtualpet.persistence.DogRepository;
 import com.ohgiraffers.virtualpet.persistence.FileUserRepository;
-import com.ohgiraffers.virtualpet.util.UserUtil;
 
 import static com.ohgiraffers.virtualpet.util.ShowUtil.*;
 
@@ -51,29 +50,44 @@ public class DogServiceImpl implements DogService{
     public boolean performAction(User user, Dog dog, String action) {
         switch (action) {
             case "밥주기":
-                UserUtil.checkAndRecharge(user);
-                user.usePoints(20); LogDB.log(dog.getName() + " 밥주기 완료");
-                dog.feed();
-                printeatDog();
-                System.out.println("🎉 " + dog.getName() + "의 배부름이 +10 증가했어요! 🍖");
+                if (dog.getHunger() < 100) {
+                    UserService.checkAndRecharge(user);
+                    user.usePoints(20);
+                    LogDB.log(dog.getName() + " 밥주기 완료");
+                    dog.feed();
+                    printeatDog();
+                    System.out.println("🎉 " + dog.getName() + "의 배부름이 +10 증가했어요! 🍖");
+                } else {
+                    System.out.println("🍖 이미 배가 가득 차 있어요! 포인트는 차감되지 않았습니다.");
+                }
                 System.out.println("💰 현재 포인트: " + user.getPoints());
                 break;
 
             case "놀아주기":
-                UserUtil.checkAndRecharge(user);
-                user.usePoints(20); LogDB.log(dog.getName() + " 놀아주기 완료");
-                dog.play();
-                printplayDog();
-                System.out.println("🎾 " + dog.getName() + "의 기분이 +10 좋아졌어요! 😊");
+                if (dog.getMood() < 100) {
+                    UserService.checkAndRecharge(user);
+                    user.usePoints(20);
+                    LogDB.log(dog.getName() + " 놀아주기 완료");
+                    dog.play();
+                    printplayDog();
+                    System.out.println("🎾 " + dog.getName() + "의 기분이 +10 좋아졌어요! 😊");
+                } else {
+                    System.out.println("🎾 이미 기분이 최고예요! 포인트는 차감되지 않았습니다.");
+                }
                 System.out.println("💰 현재 포인트: " + user.getPoints());
                 break;
 
             case "재우기":
-                UserUtil.checkAndRecharge(user);
-                user.usePoints(20); LogDB.log(dog.getName() + " 재우기 완료");
-                dog.sleep();
-                printsleepDog();
-                System.out.println("🛌 " + dog.getName() + "의 체력이 +10 회복되었어요! 💪");
+                if (dog.getEnergy() < 100) {
+                    UserService.checkAndRecharge(user);
+                    user.usePoints(20);
+                    LogDB.log(dog.getName() + " 재우기 완료");
+                    dog.sleep();
+                    printsleepDog();
+                    System.out.println("🛌 " + dog.getName() + "의 체력이 +10 회복되었어요! 💪");
+                } else {
+                    System.out.println("🛌 이미 체력이 가득해요! 포인트는 차감되지 않았습니다.");
+                }
                 System.out.println("💰 현재 포인트: " + user.getPoints());
                 break;
 
@@ -85,6 +99,7 @@ public class DogServiceImpl implements DogService{
         }
         return true;
     }
+
 
     @Override
     public void decreaseStatus(Dog dog) {

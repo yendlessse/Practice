@@ -98,6 +98,7 @@ public class Application_final {
 
             if (!run) {
                 timer.stopTimer();
+                userRepo.saveUsers(users);
                 System.out.println("\n🎉 게임 종료 🎉");
                 System.out.println("🐶 다음에 또 놀러와요! 안녕! 👋");
             }

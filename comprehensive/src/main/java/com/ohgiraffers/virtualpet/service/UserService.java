@@ -1,10 +1,10 @@
-package com.ohgiraffers.virtualpet.util;
+package com.ohgiraffers.virtualpet.service;
 
 import com.ohgiraffers.virtualpet.domain.User;
 
 import java.util.Scanner;
 
-public class UserUtil {
+public class UserService {
     // 포인트 체크 및 필요 시 충전
     public static boolean checkAndRecharge(User user) {
         Scanner sc = new Scanner(System.in);
