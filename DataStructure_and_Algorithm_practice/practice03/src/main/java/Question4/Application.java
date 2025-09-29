@@ -13,9 +13,10 @@ public class Application {
     static int N; // 전체 사람 수
     static int now, end;
     static int M; // 부모 자식 관계 수
+    static int answer = -1; // 답
 
     static int[][] map;
-    static int[][] visit;
+    static boolean[] visit;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -30,6 +31,7 @@ public class Application {
         M = Integer.parseInt(br.readLine());
 
         map = new int[N+1][N+1];
+        visit = new boolean[N+1];
 
         for (int i = 0; i < M; i++) {
             line = br.readLine();
@@ -40,6 +42,22 @@ public class Application {
             map[child][parent] = 1;
         }
 
+        dfs(now, 0);
+        System.out.println(answer);
+
+    }
+
+    public static void dfs(int point, int cnt) {
+        visit[point] = true;
+        for (int i = 1; i <= N; i++) {
+            if (map[point][i] == 1 && !visit[i]) {
+                if (i == end) {
+                    answer = cnt + 1;
+                    return;
+                }
+                dfs(i, cnt + 1);
+            }
+        }
 
     }
 }
